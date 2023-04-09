@@ -7,6 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { FlightTrackerComponent } from './flight-tracker/flight-tracker.component';
+import { ShoppingRecipeCourseComponent } from './shopping-recipe-course/shopping-recipe-course.component';
+import { RecipesComponent } from './shopping-recipe-course/recipes/recipes.component';
+import { RecipeListComponent } from './shopping-recipe-course/recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './shopping-recipe-course/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './shopping-recipe-course/recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './shopping-recipe-course/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-recipe-course/shopping-list/shopping-edit/shopping-edit.component';
+import { HeaderComponent } from './shopping-recipe-course/header/header.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +29,10 @@ const appRoutes: Routes = [
   {
     path: 'flight-tracker',
     component: FlightTrackerComponent,
+  },
+  {
+    path: 'shopping-recipes-course',
+    component: ShoppingRecipeCourseComponent,
   }
 ]
 
@@ -29,7 +41,15 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    FlightTrackerComponent
+    FlightTrackerComponent,
+    ShoppingRecipeCourseComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
