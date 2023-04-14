@@ -26,6 +26,7 @@ import { HeaderComponent } from './shopping-recipe-course/header/header.componen
 import { FlightNumberListComponent } from './flight-tracker/flight-number-list/flight-number-list.component';
 import { FlightNumberComponent } from './flight-tracker/flight-number-list/flight-number/flight-number.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OutboundFlightComponent } from './flight-tracker/outbound-flight/outbound-flight.component';
 
 const appRoutes: Routes = [
   {
@@ -70,7 +71,8 @@ const appRoutes: Routes = [
     ShoppingEditComponent,
     HeaderComponent,
     FlightNumberListComponent,
-    FlightNumberComponent
+    FlightNumberComponent,
+    OutboundFlightComponent
   ],
   imports: [
     BrowserModule,

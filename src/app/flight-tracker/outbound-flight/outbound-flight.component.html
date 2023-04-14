@@ -1,0 +1,19 @@
+<form class="d-flex flex-column">
+    <div class="d-flex flex-row">
+        <mat-form-field class="col-md-3" appearance="fill">
+            <mat-label>Code</mat-label>
+            <mat-select>
+                <mat-option value="one">KE</mat-option>
+                <mat-option value="two">QR</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-md-6" appearance="fill">
+            <mat-label>Flight Number</mat-label>
+            <input matInput type="number">
+        </mat-form-field>
+    </div>
+    <mat-radio-group [formControl]="floatLabelControl">
+        <mat-radio-button value="auto">Auto</mat-radio-button>
+        <mat-radio-button value="always">Always</mat-radio-button>
+    </mat-radio-group>
+</form>
