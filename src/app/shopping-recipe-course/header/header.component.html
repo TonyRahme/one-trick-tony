@@ -1,8 +1,18 @@
 <div #nav="ngbNav" ngbNav class="bg-light">
     <a class="navbar-brand">Recipe Book</a>
-    <ul ngbNav>
-        <li ngbNavItem="recipes"><a ngbNavLink class="link-info">Recipes</a></li>
-        <li ngbNavItem="shopping-list"><a ngbNavLink class="link-info">Shopping List</a></li>
+    <ul ngbNav >
+        <li ngbNavItem="recipes">
+            <a ngbNavLink
+             class="link-info"
+             (click)="onSelect('recipes')"
+             >Recipes</a>
+        </li>
+        <li ngbNavItem="shopping-list">
+            <a ngbNavLink
+             class="link-info"
+             (click)="onSelect('shopping')"
+             >Shopping List</a>
+        </li>
         <ul ngbDropdown ngbNav>
             <li ngbNavItem="manage">
                 <a ngbNavLink ngbDropdownToggle class="navbar-right" role="button">Manage</a>

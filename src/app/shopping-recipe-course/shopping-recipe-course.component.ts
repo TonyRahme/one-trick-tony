@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-recipe-course.component.scss']
 })
 export class ShoppingRecipeCourseComponent {
+  loadedFeature: string = 'recipes';
 
+  onNavigate(feature: string){
+    this.loadedFeature = feature;
+  }
 }

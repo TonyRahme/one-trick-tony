@@ -33,6 +33,14 @@ const appRoutes: Routes = [
   {
     path: 'shopping-recipes-course',
     component: ShoppingRecipeCourseComponent,
+  },
+  {
+    path: 'shopping-recipes-course#recipes',
+    component: RecipesComponent,
+  },
+  {
+    path: 'shopping-recipes-course#shopping',
+    component: ShoppingListComponent,
   }
 ]
 
