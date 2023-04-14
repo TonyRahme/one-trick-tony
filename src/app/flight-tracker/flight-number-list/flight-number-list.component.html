@@ -1,0 +1,20 @@
+<mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label >Inbound Flights</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Enter Flight Number">
+      <mat-chip-row *ngFor="let flight of flightList"
+                    (removed)="remove(flight)"
+                    [editable]="true"
+                    (edited)="edit(flight, $event)"
+                    [aria-description]="'press enter to edit ' + flight.code + flight.number">
+        {{flight.code + flight.number}}
+        <button matChipRemove [attr.aria-label]="'remove ' + flight.code + flight.number">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input placeholder="New Flight Number..."
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+  </mat-form-field>

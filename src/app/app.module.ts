@@ -1,6 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +23,9 @@ import { RecipeItemComponent } from './shopping-recipe-course/recipes/recipe-lis
 import { ShoppingListComponent } from './shopping-recipe-course/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-recipe-course/shopping-list/shopping-edit/shopping-edit.component';
 import { HeaderComponent } from './shopping-recipe-course/header/header.component';
+import { FlightNumberListComponent } from './flight-tracker/flight-number-list/flight-number-list.component';
+import { FlightNumberComponent } from './flight-tracker/flight-number-list/flight-number/flight-number.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {
@@ -57,12 +68,23 @@ const appRoutes: Routes = [
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    HeaderComponent
+    HeaderComponent,
+    FlightNumberListComponent,
+    FlightNumberComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
+    MatInputModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
