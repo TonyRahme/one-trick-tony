@@ -32,6 +32,7 @@ import { OutboundFlightComponent } from './flight-tracker/outbound-flight/outbou
 import { StoreModule } from '@ngrx/store';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { UnlessDirective } from './shared/directives/unless.directive';
+import { DropdownDirective } from './shopping-recipe-course/shared/dropdown.directive';
 
 const appRoutes: Routes = [
   {
@@ -80,6 +81,7 @@ const appRoutes: Routes = [
     OutboundFlightComponent,
     BasicHighlightDirective,
     UnlessDirective,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
