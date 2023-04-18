@@ -30,6 +30,7 @@ import { FlightNumberComponent } from './flight-tracker/flight-number-list/fligh
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OutboundFlightComponent } from './flight-tracker/outbound-flight/outbound-flight.component';
 import { StoreModule } from '@ngrx/store';
+import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 
 const appRoutes: Routes = [
   {
@@ -75,7 +76,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FlightNumberListComponent,
     FlightNumberComponent,
-    OutboundFlightComponent
+    OutboundFlightComponent,
+    BasicHighlightDirective,
   ],
   imports: [
     BrowserModule,
