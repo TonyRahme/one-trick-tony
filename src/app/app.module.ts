@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { GoogleApis } from 'googleapis';
 
 import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,6 +29,7 @@ import { FlightNumberListComponent } from './flight-tracker/flight-number-list/f
 import { FlightNumberComponent } from './flight-tracker/flight-number-list/flight-number/flight-number.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OutboundFlightComponent } from './flight-tracker/outbound-flight/outbound-flight.component';
+import { StoreModule } from '@ngrx/store';
 
 const appRoutes: Routes = [
   {
@@ -87,6 +90,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatInputModule,
     MatRadioModule,
+    StoreModule.forRoot({}, {}),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

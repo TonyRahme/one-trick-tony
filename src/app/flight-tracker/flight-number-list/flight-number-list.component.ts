@@ -1,11 +1,7 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component} from '@angular/core';
 import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
-
-export interface Flights {
-  code: string;
-  number: number;
-}
+import { Flights } from '../flight-tracker.model';
 
 @Component({
   selector: 'app-flight-number-list',
