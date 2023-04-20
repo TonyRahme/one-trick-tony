@@ -1,6 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
 import { Recipe } from './recipe.model';
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingService } from '../shopping-list/shopping.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +11,33 @@ export class RecipeService {
   
   recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
-    new Recipe('A test recipe', 'this is a default recipe', 
-    'https://www.cookipedia.co.uk/wiki/images/7/7d/Aperitif_cheese_balls_recipe.jpg'),
-    new Recipe('Another test recipe', 'this is another recipe',
-    'https://live.staticflickr.com/6233/6303474893_ef0cbc1297_b.jpg')
+    new Recipe('Hamburger',
+    'Not vegan very meaty with lettuce, so a little bit vegetarian', 
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/640px-Hamburger_%28black_bg%29.jpg',
+    [
+      new Ingredient('Buns', 2),
+      new Ingredient('Beef', 1),
+      new Ingredient('Lettuce', 1),
+    ]
+    ),
+    new Recipe('Poutine',
+    'Very nice frenchy food from Montreal',
+    'https://www.seasonsandsuppers.ca/wp-content/uploads/2014/01/new-poutine-1.jpg',
+    [
+      new Ingredient('French Fries', 69),
+      new Ingredient('Gravy', 100),
+  ]
+    )
   ];
 
-  constructor() { }
+  constructor(private shoppingService: ShoppingService) { }
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingService.addIngredients(ingredients);
+  }
+
 }
