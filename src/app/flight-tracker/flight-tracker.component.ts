@@ -9,9 +9,13 @@ const days: number[] = [31,28,31,30,31,30,31,31,30,31,30,31];
 @Component({
   selector: 'app-flight-tracker',
   templateUrl: './flight-tracker.component.html',
-  styleUrls: ['./flight-tracker.component.scss']
+  styleUrls: ['./flight-tracker.component.scss'],
+  providers: [FlightTrackerService],
 })
 export class FlightTrackerComponent {
+
+	private outboundFlight: FlightNumber;
+
   /**
    * JAVA CODE COPIED OVER
    * 
@@ -19,6 +23,20 @@ export class FlightTrackerComponent {
    * 
    */
 	constructor(private flightTrackerService: FlightTrackerService) {}
+
+
+	ngOnInit() {
+		this.flightTrackerService.outboundFlightChanged.subscribe(
+			newFlight => {
+				this.outboundFlight = newFlight;
+			}
+			)
+		}
+		
+	testAPICall() {
+		this.flightTrackerService.getFlightStatus(new FlightNumber('QR', 744));
+	}
+
     checkDate(
 		hourInb: number, monthInb: string, dayInb: string, 
 		hourKe: number, monthKe: string, dayKe: string, 
@@ -49,9 +67,6 @@ export class FlightTrackerComponent {
     	return -1; //not the flight
     }
 
-	testAPICall() {
-		this.flightTrackerService.getFlightStatus(new FlightNumber('QR', 744));
-	}
 
 	/* trackFlight(destination: string, outboundFlight: FlightNumber, currentDate: string): void {
 		outboundFlight={carrier:"KE", flight: 92};

@@ -3,8 +3,10 @@
         <mat-form-field class="col-md-3" appearance="fill">
             <mat-label>Code</mat-label>
             <mat-select>
-                <mat-option value="one">KE</mat-option>
-                <mat-option value="two">QR</mat-option>
+                <mat-option *ngFor="let flight of outboundAirlines"
+                    [value]="flight.code">
+                    {{flight.name}}
+                </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="col-md-6" appearance="fill">

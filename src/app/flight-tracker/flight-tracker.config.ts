@@ -1,3 +1,5 @@
+import { Airline, FlightNumber } from "./flight-tracker.model";
+
 export const month = {
     [1]: "JAN",
     [2]: "FEB",
@@ -14,3 +16,17 @@ export const month = {
     }
     ;
 export const days: number[] = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+export const outboundAirlines: Airline[] = [
+    new Airline("KE", "Korean Air"),
+    new Airline("QR", "Qatar Airways"),
+    new Airline("TK", "Turkish Airlines"),
+    new Airline("AF", "Air France"),
+]
+
+export const inboundFlights: FlightNumber[] = [
+    new FlightNumber('B6', 455),
+    new FlightNumber('TK', 82),
+    new FlightNumber('LH', 425),
+];
+
