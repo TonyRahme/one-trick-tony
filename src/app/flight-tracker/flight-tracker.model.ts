@@ -2,8 +2,7 @@ export interface FlightTracker {
 }
 
 
-export interface Flights {
-    code: string;
-    number: number;
+export class FlightNumber {
+    constructor(public carrier: string, public flight: number){}
 }
   

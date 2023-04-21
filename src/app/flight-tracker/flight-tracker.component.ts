@@ -1,7 +1,6 @@
-import { Component, Pipe } from '@angular/core';
-import { Flights } from './flight-tracker.model';
+import { Component } from '@angular/core';
+import { FlightNumber } from './flight-tracker.model';
 import { FlightTrackerService } from './service/flight-tracker.service';
-import { map, take } from 'rxjs';
 
 
 enum months {JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
@@ -50,10 +49,12 @@ export class FlightTrackerComponent {
     	return -1; //not the flight
     }
 
+	testAPICall() {
+		this.flightTrackerService.getFlightStatus(new FlightNumber('QR', 744));
+	}
 
-
-	trackFlight(destination: string, outboundFlight: Flights, currentDate: string): void {
-		outboundFlight={code:"KE", number: 92};
+	/* trackFlight(destination: string, outboundFlight: FlightNumber, currentDate: string): void {
+		outboundFlight={carrier:"KE", flight: 92};
 		let spreadsheetId = "156Fm_ktpuNwmOp5d1I8KEFhxHTaLHxvVmonDpd1r34k";
 		let range = "FlightTracker!A2:A";
 		let keDocument: Document; 
@@ -101,7 +102,6 @@ export class FlightTrackerComponent {
 		});
 		console.log(`Flight of ke: ${keDateInfo[1]} ${keDateInfo[2]} ${keHour}`);
 		i = 0;
-		/* 
 		List<List<Object>> values = response.getValues();
 		//System.out.println(values.size());
 		if (values == null || values.isEmpty()) {
@@ -228,9 +228,7 @@ export class FlightTrackerComponent {
 			.setValueInputOption("RAW")
 			.execute();
 		}
-		*/
-
-		/* 
+		
 		String rateRange = "FlightTracker!J2";
 		ValueRange refreshRange = service.spreadsheets().values()
 			.get(spreadsheetId, rateRange)
@@ -245,7 +243,7 @@ export class FlightTrackerComponent {
 		  timer.start();
 		  System.out.println(cycle);
 		}
-		*/
-	  }
+	}
+	*/
 	
 }

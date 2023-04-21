@@ -5,9 +5,9 @@
                     (removed)="remove(flight)"
                     [editable]="true"
                     (edited)="edit(flight, $event)"
-                    [aria-description]="'press enter to edit ' + flight.code + flight.number">
-        {{flight.code + flight.number}}
-        <button matChipRemove [attr.aria-label]="'remove ' + flight.code + flight.number">
+                    [aria-description]="'press enter to edit ' + flight.carrier + flight.flight">
+        {{flight.carrier + flight.flight}}
+        <button matChipRemove [attr.aria-label]="'remove ' + flight.carrier + flight.flight">
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip-row>

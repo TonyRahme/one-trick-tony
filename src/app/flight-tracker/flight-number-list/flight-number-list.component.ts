@@ -1,7 +1,7 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component} from '@angular/core';
 import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
-import { Flights } from '../flight-tracker.model';
+import { FlightNumber } from '../flight-tracker.model';
 
 @Component({
   selector: 'app-flight-number-list',
@@ -12,7 +12,7 @@ export class FlightNumberListComponent {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  flightList: Flights[] = [{code: 'B6', number: 455}, {code: 'TK', number: 82}, {code: 'LH', number: 425}];
+  flightList: FlightNumber[] = [{carrier: 'B6', flight: 455}, {carrier: 'TK', flight: 82}, {carrier: 'LH', flight: 425}];
 
 
   getCodeFromString(value: string):string {
@@ -30,14 +30,14 @@ export class FlightNumberListComponent {
     if (value) {
       let CODE = this.getCodeFromString(value);
       let NUMBER = this.getFlightNumberFromString(value);
-      this.flightList.push({code: CODE, number: Number(NUMBER)});
+      this.flightList.push({carrier: CODE, flight: Number(NUMBER)});
     }
 
     // Clear the input value
     event.chipInput!.clear();
   }
 
-  remove(flight: Flights): void {
+  remove(flight: FlightNumber): void {
     const index = this.flightList.indexOf(flight);
 
     if (index >= 0) {
@@ -45,7 +45,7 @@ export class FlightNumberListComponent {
     }
   }
 
-  edit(flight: Flights, event: MatChipEditedEvent) {
+  edit(flight: FlightNumber, event: MatChipEditedEvent) {
     const value = event.value.trim();
 
     // Remove flight if it no longer has a name
@@ -57,8 +57,8 @@ export class FlightNumberListComponent {
     // Edit existing flight
     const index = this.flightList.indexOf(flight);
     if (index >= 0) {
-      this.flightList[index].code = this.getCodeFromString(value);
-      this.flightList[index].number = this.getFlightNumberFromString(value);
+      this.flightList[index].carrier = this.getCodeFromString(value);
+      this.flightList[index].flight = this.getFlightNumberFromString(value);
     }
   }
 
