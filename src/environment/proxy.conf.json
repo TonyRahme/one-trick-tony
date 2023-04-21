@@ -4,7 +4,7 @@
         "secure": false,
         "logLevel": "debug"
     },
-    "/flex/flightstatus/rest": {
+    "/flex": {
         "target": "https://api.flightstats.com",
         "secure": true,
         "changeOrigin": true,
