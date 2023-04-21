@@ -1,0 +1,13 @@
+{
+    "/api/*": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/flex/flightstatus/rest": {
+        "target": "https://api.flightstats.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
