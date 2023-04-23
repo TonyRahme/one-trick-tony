@@ -30,3 +30,233 @@ export const inboundFlights: FlightNumber[] = [
     new FlightNumber('LH', 425),
 ];
 
+/**
+ *  URL example
+ *  https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/TK/82/dep/2023/04/23?appId=b2779c7d&appKey=b0c9e85d16976280d4a2fb57ed697525&utc=false&airport=BOS
+ */
+
+export const TK_82_2023_04_23 = {
+    "request": {
+     "airline": {
+      "requestedCode": "TK",
+      "fsCode": "TK"
+     },
+     "flight": {
+      "requested": "82",
+      "interpreted": "82"
+     },
+     "utc": {
+      "requested": "false",
+      "interpreted": false
+     },
+     "url": "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/TK/82/dep/2023/04/23?utc=false&airport=BOS",
+     "nonstopOnly": {
+      "interpreted": false
+     },
+     "airport": {
+      "requestedCode": "BOS",
+      "fsCode": "BOS"
+     },
+     "date": {
+      "year": "2023",
+      "month": "04",
+      "day": "23",
+      "interpreted": "2023-04-23"
+     },
+     "extendedOptions": {
+      "requested": "",
+      "interpreted": ""
+     }
+    },
+    "appendix": {
+     "airlines": [
+      {
+       "fs": "B6",
+       "iata": "B6",
+       "icao": "JBU",
+       "name": "JetBlue Airways",
+       "active": true
+      },
+      {
+       "fs": "TK",
+       "iata": "TK",
+       "icao": "THY",
+       "name": "Turkish Airlines",
+       "active": true
+      },
+      {
+       "fs": "PK",
+       "iata": "PK",
+       "icao": "PIA",
+       "name": "Pakistan International Airlines",
+       "active": true
+      },
+      {
+       "fs": "SQ",
+       "iata": "SQ",
+       "icao": "SIA",
+       "name": "Singapore Airlines",
+       "active": true
+      }
+     ],
+     "airports": [
+      {
+       "fs": "ISL",
+       "iata": "IST",
+       "icao": "LTFM",
+       "faa": "",
+       "name": "Istanbul Airport",
+       "city": "Istanbul",
+       "countryCode": "TR",
+       "countryName": "Turkiye",
+       "regionName": "Europe",
+       "timeZoneRegionName": "Europe/Istanbul",
+       "weatherZone": "",
+       "localTime": "2023-04-24T00:20:41.361",
+       "utcOffsetHours": 3,
+       "latitude": 41.260278,
+       "longitude": 28.741944,
+       "elevationFeet": 325,
+       "classification": 1,
+       "active": true,
+       "weatherUrl": "https://api.flightstats.com/flex/weather/rest/v1/json/all/ISL?codeType=fs",
+       "delayIndexUrl": "https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/ISL?codeType=fs"
+      },
+      {
+       "fs": "BOS",
+       "iata": "BOS",
+       "icao": "KBOS",
+       "faa": "BOS",
+       "name": "Logan International Airport",
+       "street1": "One Harborside Drive",
+       "street2": "",
+       "city": "Boston",
+       "cityCode": "BOS",
+       "stateCode": "MA",
+       "postalCode": "02128-2909",
+       "countryCode": "US",
+       "countryName": "United States",
+       "regionName": "North America",
+       "timeZoneRegionName": "America/New_York",
+       "weatherZone": "MAZ015",
+       "localTime": "2023-04-23T17:20:41.361",
+       "utcOffsetHours": -4,
+       "latitude": 42.36646,
+       "longitude": -71.020176,
+       "elevationFeet": 19,
+       "classification": 1,
+       "active": true,
+       "weatherUrl": "https://api.flightstats.com/flex/weather/rest/v1/json/all/BOS?codeType=fs",
+       "delayIndexUrl": "https://api.flightstats.com/flex/delayindex/rest/v1/json/airports/BOS?codeType=fs"
+      }
+     ],
+     "equipments": [
+      {
+       "iata": "359",
+       "name": "Airbus A350-900",
+       "turboProp": false,
+       "jet": true,
+       "widebody": true,
+       "regional": false
+      }
+     ]
+    },
+    "flightStatuses": [
+     {
+      "flightId": 1176714256,
+      "carrierFsCode": "TK",
+      "flightNumber": "82",
+      "departureAirportFsCode": "BOS",
+      "arrivalAirportFsCode": "ISL",
+      "departureDate": {
+       "dateUtc": "2023-04-24T03:10:00.000Z",
+       "dateLocal": "2023-04-23T23:10:00.000"
+      },
+      "arrivalDate": {
+       "dateUtc": "2023-04-24T12:45:00.000Z",
+       "dateLocal": "2023-04-24T15:45:00.000"
+      },
+      "status": "S",
+      "schedule": {
+       "flightType": "J",
+       "serviceClasses": "RFJY",
+       "restrictions": "",
+       "uplines": [],
+       "downlines": []
+      },
+      "operationalTimes": {
+       "publishedDeparture": {
+        "dateUtc": "2023-04-24T03:10:00.000Z",
+        "dateLocal": "2023-04-23T23:10:00.000"
+       },
+       "scheduledGateDeparture": {
+        "dateUtc": "2023-04-24T03:10:00.000Z",
+        "dateLocal": "2023-04-23T23:10:00.000"
+       },
+       "estimatedGateDeparture": {
+        "dateUtc": "2023-04-24T03:10:00.000Z",
+        "dateLocal": "2023-04-23T23:10:00.000"
+       },
+       "flightPlanPlannedDeparture": {
+        "dateUtc": "2023-04-24T03:23:00.000Z",
+        "dateLocal": "2023-04-23T23:23:00.000"
+       },
+       "scheduledRunwayDeparture": {
+        "dateUtc": "2023-04-24T03:23:00.000Z",
+        "dateLocal": "2023-04-23T23:23:00.000"
+       },
+       "publishedArrival": {
+        "dateUtc": "2023-04-24T12:45:00.000Z",
+        "dateLocal": "2023-04-24T15:45:00.000"
+       },
+       "flightPlanPlannedArrival": {
+        "dateUtc": "2023-04-24T12:24:00.000Z",
+        "dateLocal": "2023-04-24T15:24:00.000"
+       },
+       "scheduledGateArrival": {
+        "dateUtc": "2023-04-24T12:45:00.000Z",
+        "dateLocal": "2023-04-24T15:45:00.000"
+       },
+       "estimatedGateArrival": {
+        "dateUtc": "2023-04-24T12:45:00.000Z",
+        "dateLocal": "2023-04-24T15:45:00.000"
+       },
+       "scheduledRunwayArrival": {
+        "dateUtc": "2023-04-24T12:24:00.000Z",
+        "dateLocal": "2023-04-24T15:24:00.000"
+       }
+      },
+      "codeshares": [
+       {
+        "fsCode": "B6",
+        "flightNumber": "6900",
+        "relationship": "L"
+       },
+       {
+        "fsCode": "PK",
+        "flightNumber": "5082",
+        "relationship": "L"
+       },
+       {
+        "fsCode": "SQ",
+        "flightNumber": "6302",
+        "relationship": "L"
+       }
+      ],
+      "delays": {},
+      "flightDurations": {
+       "scheduledBlockMinutes": 575,
+       "scheduledAirMinutes": 541,
+       "scheduledTaxiOutMinutes": 13,
+       "scheduledTaxiInMinutes": 21
+      },
+      "airportResources": {
+       "departureTerminal": "E"
+      },
+      "flightEquipment": {
+       "scheduledEquipmentIataCode": "359",
+       "actualEquipmentIataCode": "359"
+      }
+     }
+    ]
+   }

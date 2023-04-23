@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { FlightTracker, FlightNumber, Airline } from '../flight-tracker.model';
+import { FlightStatusDTO, FlightNumber, Airline } from '../flight-tracker.model';
 import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { outboundAirlines, days, month, inboundFlights } from '../flight-tracker.config';
