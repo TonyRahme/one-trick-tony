@@ -13,6 +13,7 @@ import { Airline } from '../flight-tracker.model';
 export class OutboundFlightComponent {
 
   outboundAirlines: Airline[];
+  selectedOutboundCode: string;
 
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl('auto' as FloatLabelType);
@@ -26,10 +27,15 @@ export class OutboundFlightComponent {
 
   ngOnInit() {
     this.outboundAirlines = this.flightTrackerService.getOutboundAirlines();
+    this.selectedOutboundCode = "";
   }
 
   getFloatLabelValue(): FloatLabelType {
     return this.floatLabelControl.value || 'auto';
+  }
+
+  onAirlineSelect(airline: string) {
+    this.selectedOutboundCode = airline;
   }
 
 }

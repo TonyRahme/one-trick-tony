@@ -1,15 +1,21 @@
 <form class="d-flex flex-column">
     <div class="d-flex flex-row">
-        <mat-form-field class="col-md-3" appearance="fill">
-            <mat-label>Code</mat-label>
-            <mat-select>
+        <mat-form-field class="col-md-5" appearance="fill">
+            <mat-label>Airline</mat-label>
+            <mat-select (selectionChange)="onAirlineSelect($event.value)">
                 <mat-option *ngFor="let flight of outboundAirlines"
                     [value]="flight.code">
                     {{flight.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="col-md-6" appearance="fill">
+    </div>
+    <div class="d-flex flex-row">
+        <mat-form-field class="col-md-3 col-xs-3" appearance="fill">
+            <mat-label>Code</mat-label>
+            <input matInput [readonly]="true" [value]="selectedOutboundCode" />
+        </mat-form-field>
+        <mat-form-field class="col-xs-6" appearance="fill">
             <mat-label>Flight Number</mat-label>
             <input matInput type="number">
         </mat-form-field>
