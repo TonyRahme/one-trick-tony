@@ -22,5 +22,9 @@ export class ShoppingListComponent {
     )
   }
 
+  ngOnDestroy(){
+    this.shoppingService.ingredientsChanged.unsubscribe();
+  }
+
   
 }
