@@ -11,8 +11,8 @@ export interface FlightStatusDTO {
 }
 
 export interface FlightDate {
-    dateUtc: Date;
-    dateLocal: Date;
+    dateUtc: string;
+    dateLocal: string;
 }
 
 export class FlightNumber {

@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { FlightStatusDTO, FlightNumber, Airline } from '../flight-tracker.model';
 import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { outboundAirlines, days, month, inboundFlights } from '../flight-tracker.config';
+import { outboundAirlines, days, month, inboundFlights, TK_82_2023_04_23, BOS_FLIGHTSTATUS_MAP_2023_04_24 } from '../flight-tracker.config';
 
 
 @Injectable({
@@ -29,6 +29,7 @@ private inboundFlights: FlightNumber[];
 
 //Emitters
 outboundFlightChanged = new EventEmitter<FlightNumber>();
+inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
 
   constructor(private http: HttpClient) {
     this.days = days;
@@ -40,24 +41,46 @@ outboundFlightChanged = new EventEmitter<FlightNumber>();
     return this.months[this.evaluateNumericalMonth(value)];
   }
 
-  onFlightNumberChange(flightNumber: FlightNumber){
+  getOutboundAirlines(): Airline[] {
+    return this.outboundAirlines.slice();
+  }
+
+  getInboundFlights(): FlightNumber[] {
+    return this.inboundFlights;
+  }
+    
+  onOutboundFlightNumberChange(flightNumber: FlightNumber){
     this.outboundFlightChanged.emit(flightNumber);
   }
 
-  getOutboundAirlines(): Airline[] {
-    return this.outboundAirlines.slice();
+  onInboundFlightNumbersChange(flightNumberList: FlightNumber[]) {
+    this.inboundFlightsChanged.emit(flightNumberList);
   }
   
   /**
    * TEST: retrieve latest flight status of airline and flight number
    * @param flightNumber 
    */
-  getFlightStatus(flightNumber: FlightNumber) {
-    let date = new Date();
+  getDepartingFlightStatus(flightNumber: FlightNumber): FlightStatusDTO {
+    let flightStatus: FlightStatusDTO = TK_82_2023_04_23.flightStatuses[0];
+    return flightStatus;
+    /* let date = new Date();
     let flightStatusURL = `v2/json/flight/tracks/${flightNumber.carrier}/${flightNumber.flight}/dep/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`;
-    this.http.get(`${this.baseURL}${flightStatusURL}${this.apiKeyIdURL}`).pipe(take(1)).subscribe(value => {
-      console.log(value);
-    })
+    this.http.get(`${this.baseURL}${flightStatusURL}${this.apiKeyIdURL}`)
+      .pipe(take(1)).subscribe((value) => {
+        flighStatus = value.flightStatuses;
+    }) */
+  }
+
+  getArrivingFlightStatuses(flightNumberList?: FlightNumber[]): Map<string, FlightStatusDTO> {
+    if(!flightNumberList?.length){
+      return BOS_FLIGHTSTATUS_MAP_2023_04_24;
+    }
+    return new Map(flightNumberList.filter( (fn) => BOS_FLIGHTSTATUS_MAP_2023_04_24.has(`${fn.carrier}${fn.flight}`)).map(fs => {
+      let fsCode = `${fs.carrier}${fs.flight}`;
+      let fsValue = BOS_FLIGHTSTATUS_MAP_2023_04_24.get(fsCode);
+      return fsValue ? [fsCode, fsValue] : undefined ;
+    }));
   }
 
   /**

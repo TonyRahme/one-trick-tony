@@ -2,6 +2,8 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component} from '@angular/core';
 import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
 import { FlightNumber } from '../flight-tracker.model';
+import { inboundFlights } from '../flight-tracker.config';
+import { FlightTrackerService } from '../service/flight-tracker.service';
 
 @Component({
   selector: 'app-flight-number-list',
@@ -12,8 +14,9 @@ export class FlightNumberListComponent {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  flightList: FlightNumber[] = [{carrier: 'B6', flight: 455}, {carrier: 'TK', flight: 82}, {carrier: 'LH', flight: 425}];
+  flightList: FlightNumber[] = inboundFlights;
 
+  constructor(private flightTrackerService: FlightTrackerService){}
 
   getCodeFromString(value: string):string {
     return value.slice(0,2);
@@ -35,6 +38,8 @@ export class FlightNumberListComponent {
 
     // Clear the input value
     event.chipInput!.clear();
+
+    this.onInboundFlightNumbersChange();
   }
 
   remove(flight: FlightNumber): void {
@@ -43,6 +48,7 @@ export class FlightNumberListComponent {
     if (index >= 0) {
       this.flightList.splice(index, 1);
     }
+    this.onInboundFlightNumbersChange();
   }
 
   edit(flight: FlightNumber, event: MatChipEditedEvent) {
@@ -60,6 +66,11 @@ export class FlightNumberListComponent {
       this.flightList[index].carrier = this.getCodeFromString(value);
       this.flightList[index].flight = this.getFlightNumberFromString(value);
     }
+    this.onInboundFlightNumbersChange();
+  }
+
+  private onInboundFlightNumbersChange(){
+    this.flightTrackerService.onInboundFlightNumbersChange(this.flightList);
   }
 
 }

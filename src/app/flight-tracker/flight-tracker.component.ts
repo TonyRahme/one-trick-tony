@@ -15,6 +15,7 @@ const days: number[] = [31,28,31,30,31,30,31,31,30,31,30,31];
 export class FlightTrackerComponent {
 
 	private outboundFlight: FlightNumber;
+	private inboundFlights: FlightNumber[];
 
   /**
    * JAVA CODE COPIED OVER
@@ -26,15 +27,25 @@ export class FlightTrackerComponent {
 
 
 	ngOnInit() {
+
+		this.inboundFlights = this.flightTrackerService.getInboundFlights();
 		this.flightTrackerService.outboundFlightChanged.subscribe(
 			newFlight => {
 				this.outboundFlight = newFlight;
 			}
 			)
+
+		this.flightTrackerService.inboundFlightsChanged.subscribe(
+			newFlights => {
+				this.inboundFlights = newFlights;
+			}
+		)
 		}
 		
 	testAPICall() {
-		this.flightTrackerService.getFlightStatus(new FlightNumber('QR', 744));
+		let departingStatus = this.flightTrackerService.getDepartingFlightStatus(new FlightNumber('QR', 744));
+		let arrivingStatuses = this.flightTrackerService.getArrivingFlightStatuses(this.inboundFlights);
+		console.log(arrivingStatuses);
 	}
 
     checkDate(
