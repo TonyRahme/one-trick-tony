@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
 import { FlightTrackerService } from '../service/flight-tracker.service';
-import { Airline } from '../flight-tracker.model';
+import { Airline, FlightNumber } from '../flight-tracker.model';
 
 @Component({
   selector: 'app-outbound-flight',
@@ -13,7 +13,11 @@ import { Airline } from '../flight-tracker.model';
 export class OutboundFlightComponent {
 
   outboundAirlines: Airline[];
-  selectedOutboundCode: string;
+  outboundCode: string;
+  outboundFlightNumber: number;
+  
+  outboundCodeControl = new FormControl<string>('');
+  outboundFlightNumberControl = new FormControl();
 
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl('auto' as FloatLabelType);
@@ -21,21 +25,27 @@ export class OutboundFlightComponent {
   options = this._formBuilder.group({
     hideRequired: this.hideRequiredControl,
     floatLabel: this.floatLabelControl,
+    airlineCode: this.outboundCodeControl,
+    airlineFlightNumber: this.outboundFlightNumberControl,
   });
 
   constructor(private flightTrackerService: FlightTrackerService, private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.outboundAirlines = this.flightTrackerService.getOutboundAirlines();
-    this.selectedOutboundCode = "";
   }
 
   getFloatLabelValue(): FloatLabelType {
-    return this.floatLabelControl.value || 'auto';
+    return !!this.outboundCodeControl ? 'always' : 'auto';
   }
 
   onAirlineSelect(airline: string) {
-    this.selectedOutboundCode = airline;
+    this.outboundCode = airline;
+  }
+
+  onFlightNumberChange() {
+    this.flightTrackerService.onOutboundFlightNumberChange(new FlightNumber(this.options.controls.airlineCode.value, this.outboundFlightNumber));
+    console.log(this.outboundCodeControl, this.outboundFlightNumberControl);
   }
 
 }
