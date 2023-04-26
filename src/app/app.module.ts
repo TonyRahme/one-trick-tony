@@ -33,6 +33,8 @@ import { StoreModule } from '@ngrx/store';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { UnlessDirective } from './shared/directives/unless.directive';
 import { DropdownDirective } from './shopping-recipe-course/shared/dropdown.directive';
+import { XYChartDemoComponent } from './flight-tracker/charts/xychart-demo/xychart-demo.component';
+import { ScatterChartDemoComponent } from './flight-tracker/charts/scatter-chart-demo/scatter-chart-demo.component';
 
 const appRoutes: Routes = [
   {
@@ -82,6 +84,8 @@ const appRoutes: Routes = [
     BasicHighlightDirective,
     UnlessDirective,
     DropdownDirective,
+    XYChartDemoComponent,
+    ScatterChartDemoComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,8 @@
         <app-flight-number-list></app-flight-number-list>
     </div>
     <button (click)="testAPICall()">Find Flight</button>
+
+    <app-xychart-demo [data]="numberOfFlightsByAirline"></app-xychart-demo>
+    <app-scatter-chart-demo [data]="numberOfFlightsByAirline"></app-scatter-chart-demo>
 </div>
 

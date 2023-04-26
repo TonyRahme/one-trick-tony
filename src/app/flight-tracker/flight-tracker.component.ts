@@ -16,6 +16,7 @@ export class FlightTrackerComponent {
 
 	private outboundFlight: FlightNumber;
 	private inboundFlights: FlightNumber[];
+	numberOfFlightsByAirline: Map<string, number>;
 
   /**
    * JAVA CODE COPIED OVER
@@ -28,24 +29,31 @@ export class FlightTrackerComponent {
 
 	ngOnInit() {
 
+		console.log(this.numberOfFlightsByAirline);
+		
 		this.inboundFlights = this.flightTrackerService.getInboundFlights();
 		this.flightTrackerService.outboundFlightChanged.subscribe(
-			newFlight => {
-				this.outboundFlight = newFlight;
-			}
-			)
-
+		newFlight => {
+			this.outboundFlight = newFlight;
+		}
+		)
+		
 		this.flightTrackerService.inboundFlightsChanged.subscribe(
 			newFlights => {
 				this.inboundFlights = newFlights;
 			}
 		)
+		this.numberOfFlightsByAirline = this.flightTrackerService.getNumberOfArrivingFlightsByAirlines(this.inboundFlights);
 		}
 		
 	testAPICall() {
 		let departingStatus = this.flightTrackerService.getDepartingFlightStatus(new FlightNumber('QR', 744));
 		let arrivingStatuses = this.flightTrackerService.getArrivingFlightStatuses(this.inboundFlights);
 		console.log(arrivingStatuses);
+	}
+
+	parseChart() {
+
 	}
 
     checkDate(

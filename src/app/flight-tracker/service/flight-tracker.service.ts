@@ -83,6 +83,17 @@ inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
     }));
   }
 
+  getNumberOfArrivingFlightsByAirlines(inbFlights: FlightNumber[]): Map<string,number> {
+    const flightsMap: Map<string, number> = new Map<string, number>();
+
+    Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24).forEach(([id, flight]) => {
+      if(inbFlights.some(fn => fn.carrier === flight.carrierFsCode)) {
+        flightsMap.has(flight.carrierFsCode) ? flightsMap.set(flight.carrierFsCode, flightsMap.get(flight.carrierFsCode)+1) : flightsMap.set(flight.carrierFsCode, 1);
+      }
+    });
+    return flightsMap;
+  }
+
   /**
    * HELPER FUNCTIONS
    */
