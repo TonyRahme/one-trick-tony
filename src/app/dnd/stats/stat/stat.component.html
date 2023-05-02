@@ -1,1 +1,6 @@
-<p>stat works!</p>
+<div className="stat-row" key={props.stat}>
+    <span className="stat-row-name">{{stat}}</span>
+    <span className="stat-row-value">{{statBlock.rawScore}}</span>
+    <span className="stat-row-arrow">=&gt;</span>
+    <span className="stat-row-multiroll">{{statBlock.multiRollArray}}</span>
+</div>

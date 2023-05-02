@@ -1,0 +1,31 @@
+@import '../stats.component.scss';
+
+.stat-row {
+    display: grid;
+    grid-template-areas: 
+    "stat-name stat-raw-value stat-arrow stat-multiroll";
+    grid-template-columns: $stat-name-width $stat-raw-value-width $stat-arrow-width $stat-multiroll-width;
+    column-gap: $col-gap-width;
+    justify-items: center;
+
+    &-name {
+        grid-area: stat-name;
+        font-family: 'Montserrat';
+        font-weight: 900;
+    }
+    &-value {
+        grid-area: stat-raw-value;
+        font-family: 'Sacramento', 'sans';
+        font-weight: 600;
+    }
+    &-arrow {
+        grid-area: stat-arrow;
+        font-family: 'Sacramento', 'sans';
+        font-weight: 600;
+    }
+    &-multiroll {
+        grid-area: stat-multiroll;
+        font-family: 'Sacramento', 'sans';
+        font-weight: 600;
+    }
+}

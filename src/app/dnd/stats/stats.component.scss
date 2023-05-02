@@ -1,0 +1,17 @@
+$stat-name-width: 36px;
+$stat-raw-value-width: 24px;
+$stat-arrow-width: 12px;
+$stat-multiroll-width: 48px;
+$col-gap-width: 6px;
+$stat-block-width: calc($stat-name-width + $stat-raw-value-width 
+    + $stat-arrow-width + $stat-multiroll-width + calc($col-gap-width * 6));
+
+
+
+.stats-container {
+    display: grid;
+    grid-template-rows: auto;
+    padding: 5% 3%;
+    width: $stat-block-width;
+    border: 1px black dotted;
+}
