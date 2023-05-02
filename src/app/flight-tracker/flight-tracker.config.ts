@@ -1,6 +1,11 @@
 import { Airline, FlightNumber, FlightStatusDTO } from "./flight-tracker.model";
-import BOS_2023_04_24_JSON from "./sample/BOS_2023_04_24.json";
-import * as TK82_2023_04_23 from "./sample/TK82_2023_04_23.json"
+import TK82_2023_04_23 from "./sample/TK82_2023_04_23.json";
+import BOS_2023_04_24_0900_JSON from "./sample/BOS_2023_04_24_0900.json";
+/* import BOS_2023_04_24_0000_JSON from "./sample/BOS_2023_04_24_0000.json";
+import BOS_2023_04_24_0600_JSON from "./sample/BOS_2023_04_24_0600.json";
+import BOS_2023_04_24_1200_JSON from "./sample/BOS_2023_04_24_1200.json";
+import BOS_2023_04_24_1800_JSON from "./sample/BOS_2023_04_24_1800.json";
+ */
 
 export const month = {
     [1]: "JAN",
@@ -34,6 +39,7 @@ export const inboundFlights: FlightNumber[] = [
     new FlightNumber('NK', 1155),
     new FlightNumber('WN', 3346),
     new FlightNumber('AC', 99),
+    new FlightNumber('QR', 743),
 ];
 
 /**
@@ -43,7 +49,21 @@ export const inboundFlights: FlightNumber[] = [
 
 export const TK_82_2023_04_23 = TK82_2023_04_23;
 
-export const BOS_FLIGHTSTATUS_MAP_2023_04_24: Map<string, FlightStatusDTO> = 
-    new Map<string, FlightStatusDTO>(
-        BOS_2023_04_24_JSON.flightStatuses
+export const BOS_FLIGHTSTATUS_MAP_2023_04_24: Map<string, FlightStatusDTO> = jsonToMap(BOS_2023_04_24_0900_JSON)
+
+
+/* export const BOS_FLIGHTSTATUS_MAP_2023_04_24_0000: Map<string, FlightStatusDTO> = jsonToMap(BOS_2023_04_24_0000_JSON)
+export const BOS_FLIGHTSTATUS_MAP_2023_04_24_0600: Map<string, FlightStatusDTO> = jsonToMap(BOS_2023_04_24_0600_JSON)
+export const BOS_FLIGHTSTATUS_MAP_2023_04_24_1200: Map<string, FlightStatusDTO> = jsonToMap(BOS_2023_04_24_1200_JSON)
+export const BOS_FLIGHTSTATUS_MAP_2023_04_24_1800: Map<string, FlightStatusDTO> = jsonToMap(BOS_2023_04_24_1800_JSON)
+
+export const BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL: Map<string, FlightStatusDTO> = new Map([
+    ...Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_0000.entries()), ...Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_0600.entries()),
+    ...Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_1200.entries()), ...Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_1800.entries())
+])
+ */
+function jsonToMap(json: any): Map<string, FlightStatusDTO> {
+    return new Map<string, FlightStatusDTO>(
+        json?.flightStatuses
             .map((fs: FlightStatusDTO) => [`${fs.carrierFsCode}${fs.flightNumber}`, fs]));
+}

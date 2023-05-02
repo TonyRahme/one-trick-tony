@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FlightNumber } from './flight-tracker.model';
+import { AirTime, FlightNumber } from './flight-tracker.model';
 import { FlightTrackerService } from './service/flight-tracker.service';
 
 
@@ -17,6 +17,7 @@ export class FlightTrackerComponent {
 	private outboundFlight: FlightNumber;
 	private inboundFlights: FlightNumber[];
 	numberOfFlightsByAirline: Map<string, number>;
+	airTimes: Map<string, AirTime[]>;
 
   /**
    * JAVA CODE COPIED OVER
@@ -28,8 +29,6 @@ export class FlightTrackerComponent {
 
 
 	ngOnInit() {
-
-		console.log(this.numberOfFlightsByAirline);
 		
 		this.inboundFlights = this.flightTrackerService.getInboundFlights();
 		this.flightTrackerService.outboundFlightChanged.subscribe(
@@ -44,12 +43,36 @@ export class FlightTrackerComponent {
 			}
 		)
 		this.numberOfFlightsByAirline = this.flightTrackerService.getNumberOfArrivingFlightsByAirlines(this.inboundFlights);
-		}
+		this.airTimes = this.flightTrackerService.getDelayByAirlines();
+
+		console.log(this.airTimes);
+	}
 		
 	testAPICall() {
 		let departingStatus = this.flightTrackerService.getDepartingFlightStatus(new FlightNumber('QR', 744));
 		let arrivingStatuses = this.flightTrackerService.getArrivingFlightStatuses(this.inboundFlights);
 		console.log(arrivingStatuses);
+
+		let testArrStatuses = this.flightTrackerService.getArrivingFlightStatuses();
+		let testAirlineEstArr = new Date(arrivingStatuses.get("QR743").operationalTimes.estimatedGateArrival.dateLocal);
+		let testEstArrMin = testAirlineEstArr.getTime()/60000;
+		
+		let testAirlineSchArr = new Date(arrivingStatuses.get("QR743").operationalTimes.scheduledGateArrival.dateLocal);
+		let testSchArrMin = testAirlineSchArr.getTime()/60000;
+		
+		let delays: any[] = [];
+
+		Array.from(testArrStatuses).forEach(([id, fs]) => {
+			if(fs.operationalTimes.estimatedGateArrival && fs.operationalTimes.scheduledGateArrival) {
+				let estArr = new Date(fs.operationalTimes.estimatedGateArrival?.dateLocal);
+				let schArr = new Date(fs.operationalTimes.scheduledGateArrival?.dateLocal);
+				let delayMin = (schArr.getTime() - estArr.getTime())/60000
+				if(delayMin > 0) delays.push({flight: id, delay: delayMin});
+			}
+		})
+		console.log(testArrStatuses)
+		console.log(delays);
+		
 	}
 
 	parseChart() {

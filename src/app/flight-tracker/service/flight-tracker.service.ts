@@ -1,8 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { FlightStatusDTO, FlightNumber, Airline } from '../flight-tracker.model';
+import { FlightStatusDTO, FlightNumber, Airline, AirTime } from '../flight-tracker.model';
 import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { outboundAirlines, days, month, inboundFlights, TK_82_2023_04_23, BOS_FLIGHTSTATUS_MAP_2023_04_24 } from '../flight-tracker.config';
+import { outboundAirlines, days, month, inboundFlights, 
+  TK_82_2023_04_23, 
+  BOS_FLIGHTSTATUS_MAP_2023_04_24 as BOS_FLIGHTSTATUS_MAP_2023_04_24_0900, 
+  
+} from '../flight-tracker.config';
 
 
 @Injectable({
@@ -26,12 +30,14 @@ private days: number[];
 private outboundAirlines: Airline[];
 private outboundFlights: FlightNumber[];
 private inboundFlights: FlightNumber[];
+private arrivalFlights: [string, FlightStatusDTO][];
 
 //Emitters
 outboundFlightChanged = new EventEmitter<FlightNumber>();
 inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
 
   constructor(private http: HttpClient) {
+    this.arrivalFlights = Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_0900)
     this.days = days;
     this.outboundAirlines = outboundAirlines.slice();
     this.inboundFlights = inboundFlights.slice();
@@ -74,11 +80,11 @@ inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
 
   getArrivingFlightStatuses(flightNumberList?: FlightNumber[]): Map<string, FlightStatusDTO> {
     if(!flightNumberList?.length){
-      return BOS_FLIGHTSTATUS_MAP_2023_04_24;
+      return BOS_FLIGHTSTATUS_MAP_2023_04_24_0900;
     }
-    return new Map(flightNumberList.filter( (fn) => BOS_FLIGHTSTATUS_MAP_2023_04_24.has(`${fn.carrier}${fn.flight}`)).map(fs => {
+    return new Map(flightNumberList.filter( (fn) => BOS_FLIGHTSTATUS_MAP_2023_04_24_0900.has(`${fn.carrier}${fn.flight}`)).map(fs => {
       let fsCode = `${fs.carrier}${fs.flight}`;
-      let fsValue = BOS_FLIGHTSTATUS_MAP_2023_04_24.get(fsCode);
+      let fsValue = BOS_FLIGHTSTATUS_MAP_2023_04_24_0900.get(fsCode);
       return fsValue ? [fsCode, fsValue] : undefined ;
     }));
   }
@@ -86,12 +92,33 @@ inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
   getNumberOfArrivingFlightsByAirlines(inbFlights: FlightNumber[]): Map<string,number> {
     const flightsMap: Map<string, number> = new Map<string, number>();
 
-    Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24).forEach(([id, flight]) => {
+    this.arrivalFlights.forEach(([id, flight]) => {
       if(inbFlights.some(fn => fn.carrier === flight.carrierFsCode)) {
         flightsMap.has(flight.carrierFsCode) ? flightsMap.set(flight.carrierFsCode, flightsMap.get(flight.carrierFsCode)+1) : flightsMap.set(flight.carrierFsCode, 1);
       }
     });
     return flightsMap;
+  }
+
+  getDelayByAirlines() {
+    let airTimeMins: Map<string, AirTime[]> = new Map();
+    this.arrivalFlights.forEach(([id, fs]) => {
+      if(fs.flightDurations?.scheduledAirMinutes && fs.operationalTimes?.estimatedGateArrival){
+        let minArray: any[] = [];
+        if(airTimeMins.has(fs.carrierFsCode)) {
+          minArray = airTimeMins.get(fs.carrierFsCode);
+        }
+        minArray.push(
+          {
+            flightNumber: id,
+            airTime: fs.flightDurations?.scheduledAirMinutes,
+            arrivalTime: new Date(fs.operationalTimes.estimatedGateArrival.dateLocal),
+          });
+        airTimeMins.set(fs.carrierFsCode, minArray);
+      }
+    })
+
+    return airTimeMins;
   }
 
   /**
