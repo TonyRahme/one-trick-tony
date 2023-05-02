@@ -35,6 +35,9 @@ import { UnlessDirective } from './shared/directives/unless.directive';
 import { DropdownDirective } from './shopping-recipe-course/shared/dropdown.directive';
 import { XYChartDemoComponent } from './flight-tracker/charts/xychart-demo/xychart-demo.component';
 import { ScatterChartDemoComponent } from './flight-tracker/charts/scatter-chart-demo/scatter-chart-demo.component';
+import { DndComponent } from './dnd/dnd.component';
+import { StatsComponent } from './dnd/stats/stats.component';
+import { StatComponent } from './dnd/stats/stat/stat.component';
 
 const appRoutes: Routes = [
   {
@@ -51,15 +54,19 @@ const appRoutes: Routes = [
     component: FlightTrackerComponent,
   },
   {
+    path: 'dnd',
+    component: DndComponent,
+  },
+  {
     path: 'shopping-recipes-course',
     component: ShoppingRecipeCourseComponent,
   },
   {
-    path: 'shopping-recipes-course#recipes',
+    path: 'shopping-recipes-course/recipes',
     component: RecipesComponent,
   },
   {
-    path: 'shopping-recipes-course#shopping',
+    path: 'shopping-recipes-course/shopping',
     component: ShoppingListComponent,
   }
 ]
@@ -86,6 +93,9 @@ const appRoutes: Routes = [
     DropdownDirective,
     XYChartDemoComponent,
     ScatterChartDemoComponent,
+    DndComponent,
+    StatsComponent,
+    StatComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@ export class NavbarComponent {
       title: 'Flight Tracker',
     },
     {
+      fragment: 'dnd',
+      title: 'DnD',
+    },
+    {
       fragment: 'shopping-recipes-course',
       title: 'Shopping Recipes Course'
     }
