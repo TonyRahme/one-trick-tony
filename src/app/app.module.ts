@@ -38,6 +38,7 @@ import { ScatterChartDemoComponent } from './flight-tracker/charts/scatter-chart
 import { DndComponent } from './dnd/dnd.component';
 import { StatsComponent } from './dnd/stats/stats.component';
 import { StatComponent } from './dnd/stats/stat/stat.component';
+import { RandomGeneratorComponent } from './dnd/random-generator/random-generator.component';
 
 const appRoutes: Routes = [
   {
@@ -96,6 +97,7 @@ const appRoutes: Routes = [
     DndComponent,
     StatsComponent,
     StatComponent,
+    RandomGeneratorComponent,
   ],
   imports: [
     BrowserModule,
