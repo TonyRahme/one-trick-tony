@@ -39,6 +39,7 @@ import { DndComponent } from './dnd/dnd.component';
 import { StatsComponent } from './dnd/stats/stats.component';
 import { StatComponent } from './dnd/stats/stat/stat.component';
 import { RandomGeneratorComponent } from './dnd/random-generator/random-generator.component';
+import { DungeonCanvasComponent } from './dnd/random-generator/dungeon-canvas/dungeon-canvas.component';
 
 const appRoutes: Routes = [
   {
@@ -98,6 +99,7 @@ const appRoutes: Routes = [
     StatsComponent,
     StatComponent,
     RandomGeneratorComponent,
+    DungeonCanvasComponent,
   ],
   imports: [
     BrowserModule,
