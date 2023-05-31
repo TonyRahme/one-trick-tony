@@ -5,10 +5,10 @@
             <li class="list-group-item"
             *ngFor="let skill of skills"
             >
-            <img class="" src="assets/about-me-images/climbing.png" alt="chillies">
+            <img [src]="skill.imagePath" [alt]="skill.altImage">
                 <div class="skill-row-description">
-                    <h2 class="skill-row-title">Lorem Ipsum Dolor</h2>
-                    <p class="skill-row-text">Lorem ipsum dolor sit amet, mauris sed consectetuer. Etiam et eu, bibendum interdum, lacus quis mauris. Curabitur wisi, quisque vel eu, rutrum nam.</p>
+                    <h2 class="skill-row-title">{{skill.title}}</h2>
+                    <p class="skill-row-text"> {{skill.description}} </p>
                 </div>
             </li>
         </ul>

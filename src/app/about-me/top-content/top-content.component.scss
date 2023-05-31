@@ -1,0 +1,50 @@
+@import '../about-me.component.scss';
+
+.top-content {
+    background: linear-gradient(#4B56D2, #82C3EC);
+}
+
+.top-cloud {
+    position: relative;
+    left: 200px;
+    top: 50px;
+    padding-top: 100px;
+}
+
+.bottom-cloud {
+    position: absolute;
+}
+
+.mountain {
+    margin-bottom: -8px;
+}
+
+.item{
+    flex-grow: 1;
+    &-big-name {
+        font-family: papyrus, fantasy;
+        font-size: 5.625em;
+        color: #F1F6F5;
+        margin: 50px auto 0 auto;
+    }
+    
+    &-small-name {
+        font-family: 'Sacramento', cursive;
+        margin: -24px 0;
+        color: #82C3EC;
+        font-weight: bold;
+    }
+
+}
+
+.title {
+    margin: 50px auto 0 auto;
+    font-family: sans-serif;
+}
+
+.center-name {
+    display: flex;
+    justify-items: flex-start;
+    flex-direction: column;
+    gap: 50px;
+}

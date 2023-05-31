@@ -41,6 +41,9 @@ import { StatComponent } from './dnd/stats/stat/stat.component';
 import { RandomGeneratorComponent } from './dnd/random-generator/random-generator.component';
 import { DungeonCanvasComponent } from './dnd/random-generator/dungeon-canvas/dungeon-canvas.component';
 import { SkillsComponent } from './about-me/skills/skills.component';
+import { TopContentComponent } from './about-me/top-content/top-content.component';
+import { MiddleContentComponent } from './about-me/middle-content/middle-content.component';
+import { BottomContentComponent } from './about-me/bottom-content/bottom-content.component';
 
 const appRoutes: Routes = [
   {
@@ -80,6 +83,7 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     FlightTrackerComponent,
+    AboutMeComponent,
     ShoppingRecipeCourseComponent,
     RecipesComponent,
     RecipeListComponent,
@@ -102,6 +106,9 @@ const appRoutes: Routes = [
     RandomGeneratorComponent,
     DungeonCanvasComponent,
     SkillsComponent,
+    TopContentComponent,
+    MiddleContentComponent,
+    BottomContentComponent,
   ],
   imports: [
     BrowserModule,
