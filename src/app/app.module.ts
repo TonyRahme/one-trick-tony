@@ -40,6 +40,7 @@ import { StatsComponent } from './dnd/stats/stats.component';
 import { StatComponent } from './dnd/stats/stat/stat.component';
 import { RandomGeneratorComponent } from './dnd/random-generator/random-generator.component';
 import { DungeonCanvasComponent } from './dnd/random-generator/dungeon-canvas/dungeon-canvas.component';
+import { SkillsComponent } from './about-me/skills/skills.component';
 
 const appRoutes: Routes = [
   {
@@ -100,6 +101,7 @@ const appRoutes: Routes = [
     StatComponent,
     RandomGeneratorComponent,
     DungeonCanvasComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
