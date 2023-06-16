@@ -44,6 +44,8 @@ import { SkillsComponent } from './about-me/skills/skills.component';
 import { TopContentComponent } from './about-me/top-content/top-content.component';
 import { MiddleContentComponent } from './about-me/middle-content/middle-content.component';
 import { BottomContentComponent } from './about-me/bottom-content/bottom-content.component';
+import { WorkExperienceListComponent } from './about-me/work-experience-list/work-experience-list.component';
+import { WorkExperienceComponent } from './about-me/work-experience-list/work-experience/work-experience.component';
 
 const appRoutes: Routes = [
   {
@@ -109,6 +111,8 @@ const appRoutes: Routes = [
     TopContentComponent,
     MiddleContentComponent,
     BottomContentComponent,
+    WorkExperienceListComponent,
+    WorkExperienceComponent,
   ],
   imports: [
     BrowserModule,
