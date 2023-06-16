@@ -1,4 +1,4 @@
-import { Skill } from "./skills.model";
+import { Skill } from "../about-me.model";
 
 export const skillsConfig: Skill[] = [
     {
