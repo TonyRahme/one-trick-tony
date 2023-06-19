@@ -1,9 +1,12 @@
 <div class="row container-fluid">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <app-outbound-flight></app-outbound-flight>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-3">
         <app-flight-number-list></app-flight-number-list>
+    </div>
+    <div class="col-md-5">
+        <app-flight-status-table></app-flight-status-table>
     </div>
     <button (click)="testAPICall()">Find Flight</button>
 

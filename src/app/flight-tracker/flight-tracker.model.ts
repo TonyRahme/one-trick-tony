@@ -56,3 +56,10 @@ export class Airline {
         public name: string,
     ) {}
 }
+
+export interface FlightStatus {
+        flightNumber: string;
+        arrivalTime: Date;
+        status: string;
+        departureAirport: string;
+}
