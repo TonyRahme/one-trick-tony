@@ -1,10 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { FlightStatusDTO, FlightNumber, Airline, AirTime } from '../flight-tracker.model';
-import { Observable, take } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { outboundAirlines, days, month, inboundFlights, 
+import { outboundAirlines, inboundFlights, 
   TK_82_2023_04_23, 
-  BOS_FLIGHTSTATUS_MAP_2023_04_24 as BOS_FLIGHTSTATUS_MAP_2023_04_24_0900, 
+  BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL, 
   
 } from '../flight-tracker.config';
 
@@ -13,18 +11,6 @@ import { outboundAirlines, days, month, inboundFlights,
   providedIn: 'root'
 })
 export class FlightTrackerService {
-
-//TODO: Create a separate GSheet Service
-private GSHEET_API_KEY = "1023649352919-739leevkir0rl4gd6cuj3a7lnrle9kpj.apps.googleusercontent.com";
-
-private ID_FLIGHT_STATS_API = "b2779c7d";
-private KEY_FLIGHT_STATS_API = "b0c9e85d16976280d4a2fb57ed697525";
-private baseURL = "/flex/flightstatus/rest/";
-private apiKeyIdURL = `?appId=${this.ID_FLIGHT_STATS_API}&appKey=${this.KEY_FLIGHT_STATS_API}`;
-
-//Might be deprecated
-private months: typeof month;
-private days: number[];
 
 //airlines
 private outboundAirlines: Airline[];
@@ -36,15 +22,10 @@ private arrivalFlights: [string, FlightStatusDTO][];
 outboundFlightChanged = new EventEmitter<FlightNumber>();
 inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
 
-  constructor(private http: HttpClient) {
-    this.arrivalFlights = Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_0900)
-    this.days = days;
+  constructor() {
+    this.arrivalFlights = Array.from(BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL)
     this.outboundAirlines = outboundAirlines.slice();
     this.inboundFlights = inboundFlights.slice();
-  }
-
-  getMonth(value: number) {
-    return this.months[this.evaluateNumericalMonth(value)];
   }
 
   getOutboundAirlines(): Airline[] {
@@ -80,11 +61,11 @@ inboundFlightsChanged = new EventEmitter<FlightNumber[]>();
 
   getArrivingFlightStatuses(flightNumberList?: FlightNumber[]): Map<string, FlightStatusDTO> {
     if(!flightNumberList?.length){
-      return BOS_FLIGHTSTATUS_MAP_2023_04_24_0900;
+      return BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL;
     }
-    return new Map(flightNumberList.filter( (fn) => BOS_FLIGHTSTATUS_MAP_2023_04_24_0900.has(`${fn.carrier}${fn.flight}`)).map(fs => {
+    return new Map(flightNumberList.filter( (fn) => BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL.has(`${fn.carrier}${fn.flight}`)).map(fs => {
       let fsCode = `${fs.carrier}${fs.flight}`;
-      let fsValue = BOS_FLIGHTSTATUS_MAP_2023_04_24_0900.get(fsCode);
+      let fsValue = BOS_FLIGHTSTATUS_MAP_2023_04_24_ALL.get(fsCode);
       return fsValue ? [fsCode, fsValue] : undefined ;
     }));
   }

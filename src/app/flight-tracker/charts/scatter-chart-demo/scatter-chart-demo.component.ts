@@ -22,6 +22,7 @@ export class ScatterChartDemoComponent {
           {
             date: value.arrivalTime.getTime(),
             value: value.airTime,
+            flightNumber: value.flightNumber
           }
         ))
       }))
@@ -80,11 +81,13 @@ export class ScatterChartDemoComponent {
     let serial = chart.series.push( 
       am5xy.SmoothedXYLineSeries.new(root, { 
         name: name,
-        xAxis: xAxis, 
+        xAxis: xAxis,
         yAxis: yAxis, 
         valueYField: "value", 
         valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {}),
+        tooltip: am5.Tooltip.new(root, {
+          labelText: "{flightNumber}: {valueY} min"
+        }),
         connect: false,
       }) 
     );

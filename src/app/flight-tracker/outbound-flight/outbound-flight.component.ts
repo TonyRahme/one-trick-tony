@@ -20,11 +20,9 @@ export class OutboundFlightComponent {
   outboundFlightNumberControl = new FormControl();
 
   hideRequiredControl = new FormControl(false);
-  floatLabelControl = new FormControl('auto' as FloatLabelType);
-
+  
   options = this._formBuilder.group({
     hideRequired: this.hideRequiredControl,
-    floatLabel: this.floatLabelControl,
     airlineCode: this.outboundCodeControl,
     airlineFlightNumber: this.outboundFlightNumberControl,
   });
@@ -45,7 +43,6 @@ export class OutboundFlightComponent {
 
   onFlightNumberChange() {
     this.flightTrackerService.onOutboundFlightNumberChange(new FlightNumber(this.options.controls.airlineCode.value, this.outboundFlightNumber));
-    console.log(this.outboundCodeControl, this.outboundFlightNumberControl);
   }
 
 }
