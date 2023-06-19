@@ -2,6 +2,7 @@
 .about-me {
     margin: 0;
     text-align: center;
+    align-self: center;
     background-color: #F1F6F5;
 }
 
@@ -25,6 +26,9 @@ p {
 h2, h3 {
     color:#82C3EC;
     font-weight: normal;
+}
+h2 {
+    font-size: 36px;
 }
 
 hr {

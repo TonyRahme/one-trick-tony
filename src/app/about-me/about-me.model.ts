@@ -9,11 +9,11 @@ export class Skill {
 export interface Project {
     title: string;
     bulletpoints: string[];
+    startDate: Date;
+    endDate?: Date;
 }
 
 export interface WorkExperience extends Project {
-    startDate: Date;
-    endDate: Date;
     company: string;
     address: string;
     logo: string;
