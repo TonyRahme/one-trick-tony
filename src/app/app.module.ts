@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -28,7 +29,6 @@ import { ShoppingListComponent } from './shopping-recipe-course/shopping-list/sh
 import { ShoppingEditComponent } from './shopping-recipe-course/shopping-list/shopping-edit/shopping-edit.component';
 import { HeaderComponent } from './shopping-recipe-course/header/header.component';
 import { FlightNumberListComponent } from './flight-tracker/flight-number-list/flight-number-list.component';
-import { FlightNumberComponent } from './flight-tracker/flight-number-list/flight-number/flight-number.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OutboundFlightComponent } from './flight-tracker/outbound-flight/outbound-flight.component';
 import { StoreModule } from '@ngrx/store';
@@ -97,7 +97,6 @@ const appRoutes: Routes = [
     ShoppingEditComponent,
     HeaderComponent,
     FlightNumberListComponent,
-    FlightNumberComponent,
     OutboundFlightComponent,
     BasicHighlightDirective,
     UnlessDirective,
@@ -132,6 +131,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatCardModule,
     MatSnackBarModule,
+    MatTableModule,
     StoreModule.forRoot({}, {}),
     HttpClientModule,
   ],
