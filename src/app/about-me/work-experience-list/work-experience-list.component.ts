@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WorkExperience } from '../about-me.model';
+import { workExperienceList } from './work-experience.config';
 
 @Component({
   selector: 'app-work-experience-list',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class WorkExperienceListComponent {
 
+  workExperiences: WorkExperience[] = workExperienceList;
 }

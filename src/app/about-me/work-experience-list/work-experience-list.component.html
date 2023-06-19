@@ -1,1 +1,12 @@
-<p>work-experience-list works!</p>
+<div class="row">
+    <div class="col-12">
+        <h2 class="work-experience-title">Work Experience.</h2>
+        <ul class="list-group d-flex">
+            <li class="list-group-item clearfix"
+            *ngFor="let we of workExperiences"
+            >
+                <app-work-experience [workExperience]="we"></app-work-experience>
+            </li>
+        </ul>
+    </div>
+</div>

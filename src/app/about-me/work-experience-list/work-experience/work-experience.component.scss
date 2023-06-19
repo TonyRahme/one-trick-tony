@@ -1,0 +1,35 @@
+@import '../../about-me.component.scss';
+
+.workExperience-row {
+    clear: left;
+    margin: 50px auto;
+    height: fit-content;
+    &-description {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-left: 5px;
+
+    }
+    &-title {
+        font-size: 24px;
+        margin: 0;
+    }
+    &-date {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    &-text {
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+        
+    }
+    
+}
+
+.sub-title {
+    font-style: italic;
+    color: gray;
+}
+

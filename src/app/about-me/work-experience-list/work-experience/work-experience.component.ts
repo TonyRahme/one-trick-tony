@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { WorkExperience } from '../../about-me.model';
 
 @Component({
   selector: 'app-work-experience',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./work-experience.component.scss']
 })
 export class WorkExperienceComponent {
-
+  @Input() workExperience: WorkExperience;
 }

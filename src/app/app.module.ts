@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -127,6 +129,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatInputModule,
     MatRadioModule,
+    MatListModule,
+    MatCardModule,
     StoreModule.forRoot({}, {}),
     HttpClientModule,
   ],
