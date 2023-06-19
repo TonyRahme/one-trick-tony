@@ -15,7 +15,6 @@ export class FlightNumberListComponent {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   flightList: FlightNumber[] = inboundFlights;
-
   constructor(private flightTrackerService: FlightTrackerService){}
 
   getCodeFromString(value: string):string {
@@ -39,7 +38,7 @@ export class FlightNumberListComponent {
     // Clear the input value
     event.chipInput!.clear();
 
-    this.onInboundFlightNumbersChange();
+    this.flightTrackerChange();
   }
 
   remove(flight: FlightNumber): void {
@@ -48,7 +47,7 @@ export class FlightNumberListComponent {
     if (index >= 0) {
       this.flightList.splice(index, 1);
     }
-    this.onInboundFlightNumbersChange();
+    this.flightTrackerChange();
   }
 
   edit(flight: FlightNumber, event: MatChipEditedEvent) {
@@ -66,6 +65,13 @@ export class FlightNumberListComponent {
       this.flightList[index].carrier = this.getCodeFromString(value);
       this.flightList[index].flight = this.getFlightNumberFromString(value);
     }
+    this.flightTrackerChange();
+  }
+/**
+ * In case we want to trigger multiple functions for any changes
+ * made with edit, add, or remove
+ */
+  flightTrackerChange() {
     this.onInboundFlightNumbersChange();
   }
 
