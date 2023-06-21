@@ -7,7 +7,10 @@ export const workExperienceList: WorkExperience[] = [
         logo: "assets/about-me-images/company-logos/softworldLogo.avif",
         startDate: new Date("2023-04-10"),
         address: "Waltham, MA",
-        bulletpoints: []
+        bulletpoints: [
+            "Worked with a team to identify store procedures in legacy code that were being used and documented findings to be split from CFN",
+            "Took initiative to build a UI tool with Angular to help with running Data Analysis on the codebase",
+        ]
     },
     {
         title: "Software Engineer I",

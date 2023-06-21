@@ -41,4 +41,15 @@ export const personalProjectList: Project[] = [
             'Worked on projects on Linux using virtual machine to improve the j– (Java) programming language conceptualized with semantics, syntax, parser generating AST'
         ]
     },
+    {
+        title: 'Learning Management System Webapp',
+        startDate: new Date('2020-07-10'),
+        endDate: new Date('2020-07-17'),
+        bulletpoints: [
+            'Utilized MERN stack (MySQL, Express.js, React.js, Node.js) with bootstrap for styling',
+            'Implemented a drag and drop visual counting exercises with react-konva for children-first design',
+            'Implemented authorization for use and admins, with admins having access to records of users, exercises they\'ve started and more',
+            'In the long term the goal is to invent an LMS that is self-reliant: integrating AI that behaves like a teacher being able to predict a child\'s weakness and help strengthen their skills'
+        ]  
+    }
 ]
