@@ -1,4 +1,4 @@
-<ul ngbNav [activeId]="route.fragment | async" class="nav-links bg-dark">
+<ul ngbNav [activeId]="route.fragment | async" class="nav-links bg-dark sticky-top container-fluid">
     <li [ngbNavItem]="link.fragment" *ngFor="let link of links">
         <a ngbNavLink [routerLink]="link.fragment" class="link-info"> {{link.title}} </a>
     </li>
