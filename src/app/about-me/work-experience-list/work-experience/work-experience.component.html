@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <img [src]="workExperience.logo" [alt]="workExperience.company"
     class="img-responsive" style="max-height: 150px;"
     >
@@ -7,7 +7,7 @@
     <p class="workExperience-row-date"> {{workExperience.startDate | date:'MMM, yyyy'}} - <span *ngIf="workExperience.endDate; else endDatePresent">{{workExperience.endDate | date: 'MMM, yyyy'}}</span> </p>
     <div class="workExperience-row-description">
         <ul class="vstack gap-3">
-            <li class=""
+            <li
             *ngFor="let point of workExperience.bulletpoints"
             > 
             <!-- <mat-icon class="p2" fontIcon="home"></mat-icon> -->
