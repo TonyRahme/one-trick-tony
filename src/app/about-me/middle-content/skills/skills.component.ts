@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Skill } from '../about-me.model';
+import { Skill } from '../../about-me.model';
 import { skillsConfig } from './skills.config';
 
 @Component({

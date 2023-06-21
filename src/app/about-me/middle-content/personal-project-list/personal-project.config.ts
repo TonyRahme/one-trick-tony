@@ -1,4 +1,4 @@
-import { Project } from "../about-me.model";
+import { Project } from "../../about-me.model";
 
 
 export const personalProjectList: Project[] = [

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Project } from '../about-me.model';
+import { Project } from '../../about-me.model';
 import { personalProjectList } from './personal-project.config';
 
 @Component({
