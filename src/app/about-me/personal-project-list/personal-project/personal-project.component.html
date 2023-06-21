@@ -1,1 +1,13 @@
-<p>personal-project works!</p>
+<div>
+    <h2 class="project-title"> {{project.title}} </h2>
+    <p class="project-date"> {{project.startDate | date:'MMM, yyyy'}} - <span *ngIf="project.endDate; else endDatePresent">{{project.endDate | date: 'MMM, yyyy'}}</span> </p>
+    <div class="project-description">
+        <ul class="vstack gap-3">
+            <li
+            *ngFor="let point of project.bulletpoints"
+            > 
+            <span class="p5 align-self-start">{{point}}</span></li>
+        </ul>
+</div>
+
+<ng-template #endDatePresent>Present</ng-template>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Project } from '../about-me.model';
+import { personalProjectList } from './personal-project.config';
 
 @Component({
   selector: 'app-personal-project-list',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class PersonalProjectListComponent {
 
+  personalProjects: Project[] = personalProjectList;
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Project } from '../../about-me.model';
 
 @Component({
   selector: 'app-personal-project',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./personal-project.component.scss']
 })
 export class PersonalProjectComponent {
-
+  @Input() project: Project;
 }

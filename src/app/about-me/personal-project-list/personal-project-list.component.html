@@ -1,1 +1,12 @@
-<p>personal-project-list works!</p>
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-5">My Projects</h2>
+        <ul class="list-group d-flex">
+            <li class="list-group-item clearfix"
+            *ngFor="let project of personalProjects"
+            >
+                <app-personal-project [project]="project"></app-personal-project>
+            </li>
+        </ul>
+    </div>
+</div>
