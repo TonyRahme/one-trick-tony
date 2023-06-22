@@ -1,12 +1,12 @@
-<div>
-    <h2 class="project-title"> {{project.title}} </h2>
-    <p class="project-date"> {{project.startDate | date:'MMM, yyyy'}} - <span *ngIf="project.endDate; else endDatePresent">{{project.endDate | date: 'MMM, yyyy'}}</span> </p>
+<div class="my-3">
+    <h2 class="project-title fs-2"> {{project.title}} </h2>
+    <p class="project-date fs-4"> {{project.startDate | date:'MMM, yyyy'}} - <span *ngIf="project.endDate; else endDatePresent">{{project.endDate | date: 'MMM, yyyy'}}</span> </p>
     <div class="project-description">
-        <ul class="vstack gap-3">
+        <ul class="vstack gap-3 mt-4">
             <li
             *ngFor="let point of project.bulletpoints"
             > 
-            <span class="p5 align-self-start">{{point}}</span></li>
+            <span class="p5 align-self-start fs-5">{{point}}</span></li>
         </ul>
 </div>
 
