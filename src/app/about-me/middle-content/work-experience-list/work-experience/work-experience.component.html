@@ -1,0 +1,18 @@
+<div class="my-3">
+    <img [src]="workExperience.logo" [alt]="workExperience.company"
+    class="img-responsive" style="max-height: 150px;"
+    >
+    <h2 class="workExperience-row-title fs-2">{{workExperience.title}}</h2>
+    <p class="workExperience-row-text sub-title fs-4"> {{workExperience.company}}, {{workExperience.address}} </p>
+    <p class="workExperience-row-date fs-4"> {{workExperience.startDate | date:'MMM, yyyy'}} - <span *ngIf="workExperience.endDate; else endDatePresent">{{workExperience.endDate | date: 'MMM, yyyy'}}</span> </p>
+    <div class="workExperience-row-description">
+        <ul class="vstack gap-3">
+            <li
+            *ngFor="let point of workExperience.bulletpoints"
+            > 
+            <!-- <mat-icon class="p2" fontIcon="home"></mat-icon> -->
+            <span class="p5 align-self-start fs-5">{{point}}</span></li>
+        </ul>
+    </div>
+</div>
+<ng-template #endDatePresent>Present</ng-template>

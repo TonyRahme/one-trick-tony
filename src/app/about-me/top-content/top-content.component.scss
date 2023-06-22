@@ -5,7 +5,7 @@
 }
 
 .top-cloud {
-    position: relative;
+    position:static;
     left: 200px;
     top: 50px;
     padding-top: 100px;
@@ -23,9 +23,8 @@
     flex-grow: 1;
     &-big-name {
         font-family: papyrus, fantasy;
-        font-size: 5.625em;
+        font-size: 10.625vw;
         color: #F1F6F5;
-        margin: 50px auto 0 auto;
     }
     
     &-small-name {
@@ -38,7 +37,8 @@
 }
 
 .title {
-    margin: 50px auto 0 auto;
+    font-size: 5.625vw;
+    flex-grow: 1;
     font-family: sans-serif;
 }
 

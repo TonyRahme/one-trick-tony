@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="skills-title fs-1">My Skills.</h2>
+        <ul class="list-group">
+            <li class="list-group-item clearfix d-lg-flex col-md-12"
+            *ngFor="let skill of skills"
+            >
+            <img [src]="skill.imagePath" [alt]="skill.altImage"
+            class="img-responsive float-lg-start" style="max-height: 150px;"
+            >
+                <div class="skill-row-description float-end">
+                    <h2 class="skill-row-title fs-2">{{skill.title}}</h2>
+                    <p class="skill-row-text fs-5"> {{skill.description}} </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

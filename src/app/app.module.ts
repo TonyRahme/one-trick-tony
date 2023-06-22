@@ -42,13 +42,17 @@ import { StatsComponent } from './dnd/stats/stats.component';
 import { StatComponent } from './dnd/stats/stat/stat.component';
 import { RandomGeneratorComponent } from './dnd/random-generator/random-generator.component';
 import { DungeonCanvasComponent } from './dnd/random-generator/dungeon-canvas/dungeon-canvas.component';
-import { SkillsComponent } from './about-me/skills/skills.component';
+import { SkillsComponent } from './about-me/middle-content/skills/skills.component';
 import { TopContentComponent } from './about-me/top-content/top-content.component';
 import { MiddleContentComponent } from './about-me/middle-content/middle-content.component';
 import { BottomContentComponent } from './about-me/bottom-content/bottom-content.component';
-import { WorkExperienceListComponent } from './about-me/work-experience-list/work-experience-list.component';
-import { WorkExperienceComponent } from './about-me/work-experience-list/work-experience/work-experience.component';
+import { WorkExperienceListComponent } from './about-me/middle-content/work-experience-list/work-experience-list.component';
+import { WorkExperienceComponent } from './about-me/middle-content/work-experience-list/work-experience/work-experience.component';
 import { FlightStatusTableComponent } from './flight-tracker/flight-status-table/flight-status-table.component';
+import { PersonalProjectListComponent } from './about-me/middle-content/personal-project-list/personal-project-list.component';
+import { PersonalProjectComponent } from './about-me/middle-content/personal-project-list/personal-project/personal-project.component';
+import { EducationListComponent } from './about-me/middle-content/education-list/education-list.component';
+import { EducationComponent } from './about-me/middle-content/education-list/education/education.component';
 
 const appRoutes: Routes = [
   {
@@ -116,6 +120,10 @@ const appRoutes: Routes = [
     WorkExperienceListComponent,
     WorkExperienceComponent,
     FlightStatusTableComponent,
+    PersonalProjectListComponent,
+    PersonalProjectComponent,
+    EducationListComponent,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,

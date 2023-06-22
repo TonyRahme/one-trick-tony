@@ -1,0 +1,27 @@
+@import '../../../about-me.component.scss';
+
+.education {
+    &-row {
+        clear: left;
+        margin: 50px auto;
+        height: 5px;
+
+    }
+
+    &-description {
+        text-align: left;
+        margin-left: 5px;
+    }
+    &-title {
+        font-size: 14px;
+        margin: 0;
+    }
+    &-text {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+p {
+    margin: 0;
+}

@@ -18,3 +18,11 @@ export interface WorkExperience extends Project {
     address: string;
     logo: string;
 }
+
+export interface Education {
+    school: string;
+    degree: string;
+    startYear: number;
+    endYear?: number;
+    logo: string;
+}
