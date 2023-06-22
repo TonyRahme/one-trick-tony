@@ -51,6 +51,8 @@ import { WorkExperienceComponent } from './about-me/middle-content/work-experien
 import { FlightStatusTableComponent } from './flight-tracker/flight-status-table/flight-status-table.component';
 import { PersonalProjectListComponent } from './about-me/middle-content/personal-project-list/personal-project-list.component';
 import { PersonalProjectComponent } from './about-me/middle-content/personal-project-list/personal-project/personal-project.component';
+import { EducationListComponent } from './about-me/middle-content/education-list/education-list.component';
+import { EducationComponent } from './about-me/middle-content/education-list/education/education.component';
 
 const appRoutes: Routes = [
   {
@@ -120,6 +122,8 @@ const appRoutes: Routes = [
     FlightStatusTableComponent,
     PersonalProjectListComponent,
     PersonalProjectComponent,
+    EducationListComponent,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,
