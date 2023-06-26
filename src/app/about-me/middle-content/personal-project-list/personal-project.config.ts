@@ -19,7 +19,7 @@ export const personalProjectList: Project[] = [
         bulletpoints: [
             'Utilized Google Cloud Platform (GCP) to authenticate and read-write GSheet data and gradle to build',
             'Utilized JSoup to scrape data from google searches',
-            'As of April 2023, recreated in Typescript and Angular 11 web app using amCharts5 for data visualization, reactive forms,',
+            'As of April 2023, recreated in Typescript and Angular 11 web app using amCharts5 for data visualization, reactive forms, and more',
         ]
     },
     {
@@ -38,7 +38,7 @@ export const personalProjectList: Project[] = [
         startDate: new Date('2020-09-06'),
         endDate: new Date('2020-12-20'),
         bulletpoints: [
-            'Worked on projects on Linux using virtual machine to improve the j– (Java) programming language conceptualized with semantics, syntax, parser generating AST'
+            'Worked on projects on Linux using virtual machine to improve the j–- (Java) programming language conceptualized with semantics, syntax, parser generating AST'
         ]
     },
     {
