@@ -21,10 +21,10 @@ export class RecipeService {
     ]
     ),
     new Recipe('Poutine',
-    'Very nice frenchy food from Montreal',
+    'Une very nice, tres bonne frenchy food from Montreal (oui oui)',
     'https://www.seasonsandsuppers.ca/wp-content/uploads/2014/01/new-poutine-1.jpg',
     [
-      new Ingredient('French Fries', 69),
+      new Ingredient('Potato', 4),
       new Ingredient('Gravy', 100),
   ]
     )
