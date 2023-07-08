@@ -12,7 +12,7 @@ export class NavbarComponent {
   links: Link[] = [
     {
       fragment: 'about-me',
-      title: 'Home',
+      title: 'About Me',
     },
     {
       fragment: 'flight-tracker',
