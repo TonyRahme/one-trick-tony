@@ -2,10 +2,10 @@ import { Skill } from "../../about-me.model";
 
 export const skillsConfig: Skill[] = [
     {
-        title: 'Design & Development',
-        description: `My exposure to coding was through game development. 
-    When I was 12 years old I stumbled upon a game engine that allowed me to learn coding.
-    From then on my facination in computers grew!
+        title: 'Technical Skills',
+        description: `Proficient in JavaScript, TypeScript, HTML, CSS, Angular, Node.js, Express, MongoDB, SQL, Git, and GitHub.
+        Familiar with React, Redux, Python, Java, C++, C#, and AWS.
+        Understanding of Agile Methodologies, Test Driven Development, and Object Oriented Programming, and Design Patterns
     `,
     imagePath:'assets/about-me-images/computer.png', 
     altImage:'computer'
